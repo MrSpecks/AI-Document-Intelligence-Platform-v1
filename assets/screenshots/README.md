@@ -1,49 +1,34 @@
 # Screenshots
 
-This directory contains screenshots and visual examples referenced in the documentation.
+**Status:** Screenshot assets are in development.
 
-## Screenshot Categories
+## Planned Screenshots
+
+As the platform UI is finalized, we plan to add screenshots showing:
 
 ### Dashboard & User Interface
-- Dashboard overview
-- Document upload interface
-- Analysis results display
-- Insights visualization
-- Settings and configuration
+- Dashboard overview (planned)
+- Document upload interface (planned)
+- Analysis results display (planned)
+- Insights visualization (planned)
+- Settings and configuration (planned)
 
 ### Document Processing
-- Document upload progress
-- Processing status updates
-- Extracted entities display
-- Risk assessment visualization
-- Compliance report example
+- Document upload progress (planned)
+- Processing status updates (planned)
+- Extracted entities display (planned)
+- Risk assessment visualization (planned)
 
 ### API & Integration Examples
-- API response examples (JSON)
-- Webhook payload examples
-- Integration flow diagrams
-- Error handling examples
+- API response examples (will be added to docs)
+- Integration flow examples (planned)
 
-### Analytics & Reporting
-- Usage analytics dashboard
-- Document processing metrics
-- Cost analysis reports
-- Compliance reporting
+## Current Status
 
-## Screenshot Usage
+The platform UI is in active development. Screenshots will be added as features are finalized and polished.
 
-Screenshots are referenced in:
-- [Developer Guide](../../docs/developer_guide.md)
-- [Platform Overview](../../docs/overview.md)
-- [Getting Started Guide](../../docs/architecture.md)
-
-## Obtaining Screenshots
-
-For current screenshots and visual walkthroughs:
-1. Visit https://documentintelligence.com/demo
-2. Contact sales@documentintelligence.com
-3. See [Developer Guide](../../docs/developer_guide.md) for workflow diagrams
+**Interim Solution:** Documentation provides detailed text descriptions and code examples. Visual assets will be added in future documentation updates.
 
 ---
 
-**Note:** This is a placeholder directory. Full screenshot package available in enterprise deployment materials.
+**Contributions Welcome:** Once the platform UI is stable, we welcome screenshot contributions. See [CONTRIBUTING.md](../../CONTRIBUTING.md) for guidelines.

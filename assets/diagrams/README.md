@@ -1,25 +1,22 @@
 # Diagrams
 
-This directory contains system architecture diagrams referenced in the documentation.
+**Status:** Diagram assets are in development.
 
-## Referenced Diagrams
+## Planned Diagrams
 
-The following diagrams are referenced in the [Architecture Guide](../../docs/architecture.md):
+The following diagrams are planned for the [Architecture Guide](../../docs/architecture.md):
 
-- **system-architecture.png** – Complete system overview diagram
-- **data-flow.png** – Document processing data flow
-- **rag-pipeline.png** – RAG (Retrieval-Augmented Generation) analysis pipeline
-- **security-architecture.png** – Multi-layer security architecture
+- **system-architecture.png** – Complete system overview diagram (in development)
+- **data-flow.png** – Document processing data flow (in development)
+- **rag-pipeline.png** – RAG analysis pipeline (in development)
+- **security-architecture.png** – Multi-layer security architecture (in development)
 
-## Diagram Sources
+## Current Status
 
-These diagrams are currently placeholders. High-resolution PNG/SVG versions are available in:
-- Full documentation package
-- Enterprise deployment guide
-- Architecture review materials
+ASCII diagrams in the documentation files provide conceptual overview. High-resolution visual diagrams will be added as the platform documentation matures.
 
-For diagram requests, contact: documentation@documentintelligence.com
+**Interim Solution:** Refer to ASCII diagrams in [docs/architecture.md](../../docs/architecture.md) for system visualization.
 
 ---
 
-**Note:** Diagrams can be generated from the ASCII representations in the documentation files.
+**Contributions Welcome:** If you'd like to contribute professional diagrams, please see [CONTRIBUTING.md](../../CONTRIBUTING.md).

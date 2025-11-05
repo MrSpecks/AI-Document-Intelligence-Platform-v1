@@ -1,5 +1,7 @@
 # Platform Overview
 
+> **Note:** This document describes the platform vision and target capabilities. For current implementation status, see [SECURITY.md](../SECURITY.md).
+
 ## The Problem
 
 Modern enterprises struggle with document-driven workflows:
@@ -44,9 +46,9 @@ Documents contain critical business intelligence, but extracting and acting on i
 
 ## The Impact
 
-### Time Savings
-- **80-90% reduction** in manual review time
-- Processes in 30-60 seconds vs. 30-60 minutes manually
+### Time Savings (Target Goals)
+- **Target: 80-90% reduction** in manual review time
+- Target processing: 30-60 seconds vs. 30-60 minutes manually
 - Frees teams for higher-value work
 
 ### Cost Reduction
@@ -92,12 +94,12 @@ Documents contain critical business intelligence, but extracting and acting on i
 
 ## Why Choose This Platform?
 
-1. **Accuracy** – 98%+ entity extraction, trained on thousands of documents
-2. **Speed** – 30-60 second processing vs. hours of manual review
+1. **AI-Powered Analysis** – Advanced RAG pipeline for intelligent document processing
+2. **Target Speed** – Designed for 30-60 second processing vs. hours of manual review
 3. **Flexibility** – Works with invoices, contracts, CVs, profiles, and custom documents
-4. **Security** – Enterprise-grade encryption, SOC 2 Type II, HIPAA-ready
-5. **Integration** – RESTful APIs, webhooks, and workflow automation
-6. **Support** – Dedicated enterprise support with 99.9% SLA
+4. **Security-Focused** – Architecture designed with enterprise security requirements in mind (see [SECURITY.md](../SECURITY.md) for current status)
+5. **Integration-Ready** – RESTful API design for seamless workflows
+6. **Active Development** – Regular updates and improvements (formal SLAs planned for enterprise tier)
 
 ---
 
@@ -112,16 +114,18 @@ Documents contain critical business intelligence, but extracting and acting on i
 
 ## Competitive Advantages
 
-| Feature | This Platform | Generic OCR | Manual Review |
-|---------|--------------|-----------|--------------|
-| Entity Extraction | 98%+ | 70-80% | 99%* |
-| Processing Time | 30-60s | 2-5m | 30-60m |
-| Cost/Document | $0.10-$0.50 | $0.05 | $5-$25 |
-| Scalability | Unlimited | Limited | Limited |
-| Domain Knowledge | Yes | No | Yes |
-| Compliance Ready | Yes | No | Yes |
+**Note:** Metrics represent target capabilities and development goals.
 
-*Manual review is slow and unscalable
+| Feature | This Platform (Target) | Generic OCR | Manual Review |
+|---------|--------------|-----------|--------------|
+| Entity Extraction | High accuracy goal | 70-80% | 99%* |
+| Processing Time | 30-60s (target) | 2-5m | 30-60m |
+| Cost/Document | Competitive pricing (TBD) | $0.05 | $5-$25 |
+| Scalability | Designed for scale | Limited | Limited |
+| Domain Knowledge | RAG-powered | No | Yes |
+| Security Focus | Architecture designed for compliance | Basic | Varies |
+
+*Manual review is accurate but slow and unscalable
 
 ---
 

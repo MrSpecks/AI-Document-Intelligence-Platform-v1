@@ -171,66 +171,66 @@ Transform enterprise document processing with AI-powered intelligence that evolv
 
 ## Community Voting
 
-We value community input on feature prioritization. Vote on features you'd like to see:
+We value community input on feature prioritization and welcome your feedback.
 
-### Current Voting Results (Vote on our GitHub Discussions)
+### Features Under Consideration
 
-1. **Document Comparison Tool** - ⭐ 234 votes
+Based on common enterprise needs, we're evaluating these features for future releases:
+
+1. **Document Comparison Tool**
    - Side-by-side contract comparison
    - Change highlighting and summaries
    - Suggested revisions based on standard templates
 
-2. **Scheduled Analysis** - ⭐ 189 votes
+2. **Scheduled Analysis**
    - Run analysis on a schedule
    - Automatic re-analysis of updated documents
    - Historical trend tracking
 
-3. **Custom Domain Models** - ⭐ 156 votes
+3. **Custom Domain Models**
    - Train LLM models on your specific documents
    - Industry-specific analysis rules
    - Feedback loop for continuous improvement
 
-4. **Export to ERP Systems** - ⭐ 143 votes
+4. **Export to ERP Systems**
    - SAP, Oracle, NetSuite integrations
    - Automatic data sync to accounting systems
    - Invoice-to-payment automation
 
-5. **Advanced Redaction** - ⭐ 128 votes
+5. **Advanced Redaction**
    - PII detection and automatic redaction
    - Configurable redaction rules
    - Audit trail of redactions
 
-**Vote for features:** https://github.com/MrSpecks/AI-Document-Intelligence-Platform-v1/discussions
+**Share your feedback:** GitHub Discussions coming soon, or email feedback@documentintelligence.com
 
 ---
 
 ## Release Notes
 
-### Version 2.0 (Q1 2025)
+### Version 0.9 - MVP (Q1 2025)
 
-**New Features:**
-- Initial platform launch with core document processing
-- RAG-powered intelligent analysis
-- Multi-language OCR support
-- Vector embeddings and semantic search
-- Comprehensive risk and compliance detection
+**Initial MVP Release:**
+- Core document processing pipeline
+- RAG-powered analysis framework
+- Basic OCR support (English)
+- Vector embeddings and semantic search foundation
+- Initial risk and compliance detection
 - Real-time processing status updates
 
-**Improvements:**
-- 2x faster document processing (30-60 seconds)
-- 98%+ entity extraction accuracy
-- 95%+ compliance detection recall
-- Reduced API latency (<100ms)
+**Development Status:**
+- Early-stage MVP in active development
+- Performance optimization ongoing
+- Feature set expanding based on feedback
+- Breaking changes expected during MVP phase
 
-**Bug Fixes:**
-- Fixed race condition in concurrent document uploads
-- Resolved vector search index corruption
-- Fixed rate limiting header calculation
-- Corrected entity confidence scoring
+**Known Limitations:**
+- Single language support (English only)
+- Performance varies by document complexity
+- Limited concurrent processing
+- Features marked as "planned" not yet implemented
 
-**Breaking Changes:**
-- API v1 deprecated (maintain until Q2 2025)
-- Webhook payload format updated (backward compatible)
+**Next Milestone:** Version 1.0 planned for Q3 2025 with production-ready features
 
 ---
 

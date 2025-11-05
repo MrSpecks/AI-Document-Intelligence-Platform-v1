@@ -223,18 +223,27 @@ Upon request, we will delete your documents and data within 30 days, except:
 
 ## 10. COMPLIANCE AND CERTIFICATIONS
 
-The Platform includes features for compliance with:
-- **SOC 2 Type II** – Security, availability, integrity
-- **HIPAA** – Healthcare data protection (HIPAA-ready, not HIPAA-covered)
-- **GDPR** – EU data protection regulations
-- **CCPA** – California consumer privacy
-- **ISO 27001** – Information security standards
+**Current Status (Early-Stage MVP):**
 
-However:
-- Compliance certifications do not guarantee absolute protection
+The Platform is designed with compliance requirements in mind, but currently does NOT hold formal certifications:
+- **SOC 2 Type II** – Not yet audited (planned for 2025-2026)
+- **HIPAA** – Not certified (architecture designed with HIPAA principles)
+- **GDPR** – Not formally audited (implementing GDPR principles)
+- **CCPA** – Requirements being implemented (not yet certified)
+- **ISO 27001** – Not certified (planned for future)
+
+**What This Means:**
+- The security architecture is designed to support future certification
+- Certifications are planned as the platform matures
 - You remain responsible for your own compliance obligations
-- On-premise deployment may require additional compliance measures
-- Enterprise agreements may specify additional compliance requirements
+- Formal audits and certifications require significant time and resources
+- See [SECURITY.md](./SECURITY.md) for current security implementation status
+
+**For Compliance-Critical Use Cases:**
+- Wait for formal certification completion before processing sensitive data
+- Consider on-premise deployment when available for full data control
+- Conduct your own security assessment before use
+- Enterprise agreements may specify compliance timelines and requirements
 
 ---
 

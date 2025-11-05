@@ -1,5 +1,7 @@
 # Contributing to AI Document Intelligence Platform
 
+> **Platform Status:** Early-stage MVP. Contribution programs and infrastructure described represent our planned community engagement model. Some features are not yet operational.
+
 Thank you for your interest in contributing to the AI Document Intelligence Platform! We welcome documentation improvements, bug reports, feature requests, and community contributions.
 
 ---
@@ -318,25 +320,27 @@ See the [Public Roadmap](./docs/roadmap.md) for top-voted features
 
 ### Contributing to Official SDKs
 
-Our SDKs are open-source and welcome contributions:
+**Status:** SDKs are planned but not yet released. We're actively developing:
 
-**Python SDK**
-- Repository: https://github.com/MrSpecks/doc-intelligence-python
-- Package: `pip install doc-intelligence`
-- License: MIT
-- Contribution guide: See SDK repo
+**Python SDK** (Planned)
+- Repository: Coming soon
+- Package: `pip install doc-intelligence` (not yet available)
+- License: Will be MIT
+- Status: In development
 
-**Node.js SDK**
-- Repository: https://github.com/MrSpecks/doc-intelligence-js
-- Package: `npm install @doc-intelligence/sdk`
-- License: MIT
-- Contribution guide: See SDK repo
+**Node.js SDK** (Planned)
+- Repository: Coming soon
+- Package: `npm install @doc-intelligence/sdk` (not yet available)
+- License: Will be MIT
+- Status: In development
 
-**Go SDK**
-- Repository: https://github.com/MrSpecks/doc-intelligence-go
-- Package: `go get github.com/docint/go-sdk`
-- License: MIT
-- Contribution guide: See SDK repo
+**Go SDK** (Planned)
+- Repository: Coming soon
+- Package: TBD
+- License: Will be MIT
+- Status: Roadmap
+
+Interested in contributing to SDK development? Contact devrel@documentintelligence.com to get involved early.
 
 ### How to Contribute to SDKs
 
@@ -422,7 +426,9 @@ Once approved, your library will be featured in:
 
 ## Recognition Program
 
-We recognize and celebrate community contributions!
+**Status:** Planned contributor recognition program (not yet operational).
+
+We plan to recognize and celebrate community contributions once the platform reaches production status:
 
 ### Contributor Levels
 
@@ -460,18 +466,16 @@ We recognize and celebrate community contributions!
 - **Networking** – Connect with team and community
 - **Swag** – Stickers, shirts, and merchandise (to top contributors)
 
-### Refer a Customer
+### Refer a Customer (Planned)
 
-Earn rewards by referring new customers:
-- $100 credit per successful referral
-- 10% commission on annual subscriptions (12 months)
-- 5% commission on monthly subscriptions
+**Status:** Referral program planned for Version 1.0 release.
 
-**How to refer:**
-1. Share your unique referral link: https://ref.documentintelligence.com/[your-id]
-2. New customers sign up via your link
-3. They complete their first payment
-4. You receive credit and ongoing commissions
+Proposed rewards structure:
+- Credit per successful referral
+- Commission on subscriptions
+- Early supporter benefits
+
+Referral program will launch when subscription system is operational. Sign up for updates to be notified when this becomes available.
 
 ---
 
@@ -598,11 +602,17 @@ To contribute documentation or SDKs:
 
 ### Communication Channels
 
+**Currently Available:**
 - **GitHub Issues**: https://github.com/MrSpecks/AI-Document-Intelligence-Platform-v1/issues
-- **GitHub Discussions**: https://github.com/MrSpecks/AI-Document-Intelligence-Platform-v1/discussions
-- **Email**: contribute@documentintelligence.com
-- **Community Forum**: https://community.documentintelligence.com
-- **Discord/Slack**: Available for active contributors
+- **GitHub Repository**: https://github.com/MrSpecks/AI-Document-Intelligence-Platform-v1
+
+**Planned Infrastructure:**
+- GitHub Discussions (coming soon)
+- Email contact system (in setup)
+- Community Forum (roadmap)
+- Discord/Slack (planned for active contributors)
+
+For now, please use GitHub Issues for all communication. Additional channels will be announced as they become available.
 
 ### Team
 

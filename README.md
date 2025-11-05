@@ -1,4 +1,21 @@
 # AI Document Intelligence Platform
+> A production-grade SaaS-ready RAG platform for transforming unstructured documents into structured, actionable intelligence.
+
+[![Tech Stack](https://img.shields.io/badge/Tech%20Stack-Next.js%20%7C%20TypeScript%20%7C%20Supabase-green?style=for-the-badge)](#tech-stack)
+[![AI Powered](https://img.shields.io/badge/AI%20Powered-RAG%20Pipeline-purple?style=for-the-badge)](#ai--rag-system-highlights)
+
+---
+
+## Author & Builder
+
+**Built by**: Kagiso Mfusi — Multicloud & AI Systems Engineer  
+**Organization**: Simply Kae Designs  
+**Contact**: kagisomfusi@outlook.com  
+**GitHub**: [@MrSpecks](https://github.com/MrSpecks)  
+**Portfolio**: [kagiso-dev-portfolio.vercel.app](https://kagiso-dev-portfolio.vercel.app)
+
+
+---
 
 ## Enterprise-Grade Document Analysis & Insights
 

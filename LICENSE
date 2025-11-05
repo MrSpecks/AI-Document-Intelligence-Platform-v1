@@ -1,0 +1,443 @@
+# AI Document Intelligence Platform
+## Proprietary Software License Agreement
+
+**Version 1.0 | Effective Date: January 1, 2025**
+
+---
+
+## 1. GRANT OF LICENSE
+
+This proprietary software and documentation ("Platform") is licensed, not sold. MrSpecks Technology (Pty) Ltd and its licensors ("Company," "We," "Us") grant you a limited, non-exclusive, non-transferable, revocable license to access and use this Platform solely for your authorized business purposes, subject to all terms and conditions herein.
+
+### 1.1 Permitted Use
+
+You may use the Platform only:
+- For your internal business operations
+- In accordance with all applicable laws and regulations
+- As expressly permitted in your subscription agreement
+- Within the scope of your assigned user roles and permissions
+
+### 1.2 Restrictions
+
+You shall NOT:
+- Copy, reproduce, duplicate, or distribute the Platform
+- Modify, adapt, translate, or create derivative works
+- Reverse engineer, decompile, disassemble, or attempt to derive source code
+- Remove, obscure, or alter any copyright, trademark, or proprietary notices
+- Use the Platform for competitive analysis, benchmarking, or building competing products
+- Resell, sublicense, or transfer your license to third parties (except enterprise partners with written agreement)
+- Use the Platform for processing documents on behalf of third parties (without proper licensing)
+- Interfere with, disrupt, or create unauthorized access to the Platform
+- Use the Platform for illegal purposes, fraud, or deception
+
+---
+
+## 2. INTELLECTUAL PROPERTY RIGHTS
+
+### 2.1 Ownership
+
+The Platform, including all software, code, algorithms, documentation, user interfaces, design, content, and intellectual property ("IP") is and remains the exclusive property of Company and its licensors. All rights not expressly granted herein are reserved.
+
+### 2.2 Protected Components
+
+The following are specifically protected:
+- Proprietary RAG (Retrieval-Augmented Generation) pipeline and algorithms
+- Vector embedding and semantic search technology
+- Multi-domain LLM analysis models and prompts
+- Entity extraction and risk assessment frameworks
+- Compliance checking rules and scoring systems
+- All software code, libraries, frameworks, and tools
+- All documentation, training materials, and knowledge bases
+
+### 2.3 Your Data
+
+Documents and data you upload remain your property. However:
+- We have a license to process, analyze, and store your data
+- We may use aggregated, anonymized data for service improvement
+- See our Privacy Policy for full data handling details
+
+---
+
+## 3. CONFIDENTIALITY
+
+### 3.1 Confidential Information
+
+The Platform and all related information is deemed confidential. You agree to:
+- Maintain confidentiality of the Platform and access credentials
+- Use the Platform only for authorized purposes
+- Not disclose the Platform to unauthorized third parties
+- Implement reasonable security measures to protect access
+
+### 3.2 Exceptions
+
+Confidentiality obligations don't apply to information that:
+- Is publicly available through no breach of this license
+- Was rightfully known prior to receiving the Platform
+- Is independently developed without reference to the Platform
+- Is required to be disclosed by law (with prior notice to Company)
+
+---
+
+## 4. SUBSCRIPTION AND USAGE
+
+### 4.1 Subscription Terms
+
+- Your license is conditioned on an active subscription or service agreement
+- License immediately terminates upon subscription expiration or termination
+- We reserve the right to suspend access for non-payment or breach
+- Subscription fees are non-refundable except as expressly stated in your service agreement
+
+### 4.2 Usage Limits
+
+Your license is limited to:
+- The number of users/seats specified in your service agreement
+- The document processing volume specified in your plan (free, starter, professional, enterprise)
+- The features and functionality included in your subscription tier
+- The storage and API rate limits assigned to your account
+
+Exceeding these limits may result in:
+- Automatic overage charges
+- Service degradation or suspension
+- Account restriction or termination
+
+### 4.3 Fair Use
+
+We enforce reasonable use policies to protect platform stability:
+- Excessive API requests may be rate-limited
+- Massive concurrent uploads may be queued
+- Abusive use may result in account suspension
+- See our Terms of Service for fair use details
+
+---
+
+## 5. THIRD-PARTY COMPONENTS
+
+The Platform may include third-party open-source software and libraries. These components are subject to their respective licenses, which are available in the LICENSE-THIRD-PARTY file or at https://docs.documentintelligence.com/licenses
+
+To the extent required by open-source licenses:
+- Attributions are provided in the documentation
+- Applicable license terms are included
+- Modifications, if any, are noted
+
+---
+
+## 6. WARRANTY DISCLAIMER
+
+**THE PLATFORM IS PROVIDED "AS-IS" WITHOUT WARRANTIES OF ANY KIND.**
+
+Company disclaims all warranties, express, implied, or statutory, including:
+- Merchantability
+- Fitness for a particular purpose
+- Noninfringement of third-party rights
+- Accuracy, completeness, or reliability of results
+- Compatibility with your systems or requirements
+- Uninterrupted or error-free operation
+
+Company does not warrant that:
+- The Platform will meet your requirements
+- Results will be 100% accurate or complete
+- All errors will be corrected
+- The Platform will be secure against all threats
+
+Your exclusive remedy for unsatisfactory performance is service credit (if eligible) or refund of subscription fees.
+
+---
+
+## 7. LIMITATION OF LIABILITY
+
+### 7.1 Liability Cap
+
+Except for indemnification obligations or breach of confidentiality, Company's total liability for all claims arising from this license shall not exceed the fees you paid in the 12 months preceding the claim.
+
+### 7.2 Excluded Damages
+
+In no event shall Company be liable for:
+- Indirect, incidental, consequential, special, or punitive damages
+- Loss of profits, revenue, or business opportunity
+- Loss of data or information
+- Business interruption or downtime
+- Reputational harm or loss of goodwill
+- Even if Company has been advised of the possibility of such damages
+
+### 7.3 Exceptions
+
+These limitations do not apply to:
+- Either party's indemnification obligations
+- Violations of confidentiality
+- Personal injury or death
+- Fraud or willful misconduct
+- Claims that cannot be excluded by law
+
+---
+
+## 8. INDEMNIFICATION
+
+### 8.1 Your Indemnification
+
+You agree to indemnify, defend, and hold harmless Company from any claims, damages, or costs (including attorneys' fees) arising from:
+- Your use of the Platform in violation of this license
+- Your breach of any term or condition
+- Your violation of applicable laws
+- Your infringement of third-party rights using the Platform
+- Your negligence or willful misconduct
+
+### 8.2 Company's Indemnification
+
+Company will defend and indemnify you against claims that the Platform, as provided, infringes third-party intellectual property rights, provided you:
+- Promptly notify Company of the claim
+- Grant Company sole control of defense and settlement
+- Provide reasonable cooperation
+
+Company's obligations are limited to:
+- Obtaining the right for you to continue using the Platform
+- Modifying the Platform to make it non-infringing
+- Refunding fees and terminating the license
+
+---
+
+## 9. DATA PROTECTION AND PRIVACY
+
+### 9.1 GDPR Compliance
+
+For personal data processing, Company acts as a Data Processor. You are the Data Controller. We maintain Data Processing Agreements (DPA) as required by GDPR. Contact privacy@documentintelligence.com for DPA execution.
+
+### 9.2 Data Security
+
+Company implements reasonable security measures:
+- AES-256 encryption at rest
+- TLS 1.3 encryption in transit
+- Role-based access control (RBAC)
+- Comprehensive audit logging
+- Regular security assessments
+
+However, no security is absolute. You assume risk of data breach despite our reasonable precautions.
+
+### 9.3 Data Deletion
+
+Upon request, we will delete your documents and data within 30 days, except:
+- Anonymized, aggregated data used for analytics
+- Data required for legal/tax compliance
+- Backup data (deleted on normal schedule)
+
+---
+
+## 10. COMPLIANCE AND CERTIFICATIONS
+
+The Platform includes features for compliance with:
+- **SOC 2 Type II** – Security, availability, integrity
+- **HIPAA** – Healthcare data protection (HIPAA-ready, not HIPAA-covered)
+- **GDPR** – EU data protection regulations
+- **CCPA** – California consumer privacy
+- **ISO 27001** – Information security standards
+
+However:
+- Compliance certifications do not guarantee absolute protection
+- You remain responsible for your own compliance obligations
+- On-premise deployment may require additional compliance measures
+- Enterprise agreements may specify additional compliance requirements
+
+---
+
+## 11. ACCEPTABLE USE POLICY
+
+You agree NOT to use the Platform to:
+- Process illegal content or conduct illegal activities
+- Create, distribute, or use malware, viruses, or security threats
+- Violate third-party intellectual property, privacy, or contractual rights
+- Engage in fraud, deception, or misrepresentation
+- Harass, threaten, defame, or harm any individual
+- Interfere with or disrupt the Platform's operation
+- Perform unauthorized security testing (see SECURITY.md for authorized testing)
+- Excessively consume resources in ways that degrade service for others
+
+Violations may result in immediate account suspension and legal action.
+
+---
+
+## 12. MODIFICATIONS TO THE PLATFORM
+
+Company reserves the right to:
+- Modify or discontinue any feature or functionality
+- Change pricing, plans, or subscription terms (with 30-day notice)
+- Update terms and conditions
+- Implement new policies or restrictions
+
+Except for critical security updates, we will provide 30 days' notice of material changes. Continued use after notification constitutes acceptance of changes.
+
+---
+
+## 13. TERMINATION
+
+### 13.1 Termination by You
+
+You may terminate your subscription at any time by:
+- Notifying Company in writing
+- Closing your account via the dashboard
+- Stopping use of the Platform
+
+Upon termination:
+- Your license immediately ends
+- You lose access to the Platform
+- Your data is handled per our data retention policy
+- No refunds for unused subscription periods (except as required by law)
+
+### 13.2 Termination by Company
+
+Company may terminate your license immediately for:
+- Material breach of this license agreement
+- Non-payment of subscription fees
+- Violation of acceptable use policy
+- Illegal use of the Platform
+- Security violations or unauthorized access attempts
+
+Upon termination:
+- We will disable your account access
+- Your data will be handled per our retention policies
+- You lose all rights to use the Platform
+- You remain liable for accrued fees
+
+### 13.3 Survival
+
+The following provisions survive termination:
+- Intellectual Property Rights
+- Confidentiality
+- Limitation of Liability
+- Indemnification
+- Compliance with Law
+- Dispute Resolution
+
+---
+
+## 14. DISPUTE RESOLUTION
+
+### 14.1 Governing Law
+
+This license agreement is governed by the laws of South Africa, without regard to conflict of law principles.
+
+### 14.2 Jurisdiction
+
+- Non-litigated disputes: Binding arbitration in Johannesburg, South Africa
+- Small claims: May be brought in small claims court
+- Equitable relief: Either party may seek injunctive relief in court
+
+### 14.3 Dispute Process
+
+Before litigation:
+1. Either party provides written notice of dispute
+2. Good faith negotiation for 30 days
+3. If unresolved, escalate to binding arbitration
+4. Arbitration conducted under International Arbitration Association rules
+
+---
+
+## 15. EXPORT CONTROL
+
+The Platform may be subject to international export control laws. You agree to:
+- Comply with all export regulations
+- Not export to prohibited countries or entities
+- Not use the Platform for prohibited end-uses
+- Obtain required export licenses before international use
+
+---
+
+## 16. ENTIRE AGREEMENT
+
+This license agreement, together with your service agreement and our privacy policy, constitutes the entire agreement between you and Company regarding the Platform. All prior understandings, agreements, and representations are superseded.
+
+### 16.1 Order of Precedence
+
+In case of conflict, documents are applied in this order:
+1. Your subscription/service agreement (specific terms)
+2. This License Agreement (general terms)
+3. Company's Standard Terms of Service
+4. Company's Privacy Policy
+
+---
+
+## 17. SEVERABILITY
+
+If any provision of this agreement is found to be unenforceable or invalid, that provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in full force and effect.
+
+---
+
+## 18. WAIVER
+
+No waiver of any provision of this agreement is effective unless in writing and signed by an authorized representative of Company. Failure to enforce any right does not constitute waiver of that right.
+
+---
+
+## 19. ASSIGNMENT
+
+### 19.1 Your Assignment
+
+You may not assign or transfer your rights under this license without Company's prior written consent. Any attempted assignment is void.
+
+### 19.2 Company's Assignment
+
+Company may assign this agreement to its affiliates or successors without restriction.
+
+---
+
+## 20. CONTACT INFORMATION
+
+For questions regarding this license agreement:
+
+**AI Document Intelligence Platform**
+Company: MrSpecks Technology (Pty) Ltd
+Email: legal@documentintelligence.com
+Website: https://documentintelligence.com
+
+For security issues, see SECURITY.md for responsible disclosure.
+
+---
+
+## 21. CHANGES TO THIS AGREEMENT
+
+Company reserves the right to modify this agreement at any time. Changes take effect when posted to this repository. Continued use of the Platform after changes constitute acceptance of the new terms.
+
+For material changes, we will provide 30 days' advance notice via email or dashboard notification.
+
+---
+
+## SUMMARY FOR NON-LAWYERS
+
+**In plain English:**
+
+✅ **You Can:**
+- Use the Platform for your business
+- Access features included in your subscription
+- Upload and process documents
+- Get help from support
+- Cancel anytime
+
+❌ **You Cannot:**
+- Copy or modify the software
+- Resell or share with others
+- Reverse engineer or steal the code
+- Use for illegal purposes
+- Claim you own the technology
+
+**Important:**
+- There are NO warranties – we provide service "as-is"
+- We're not liable for major damages
+- We can change features (with notice)
+- Your data is yours, but we process it
+- Violating this agreement = account suspension
+
+**Questions?** Contact legal@documentintelligence.com
+
+---
+
+## DOCUMENT HISTORY
+
+| Date | Version | Changes |
+|------|---------|---------|
+| 2025-01-15 | 1.0 | Initial license agreement published |
+
+---
+
+**All Rights Reserved** © 2025 MrSpecks Technology (Pty) Ltd
+
+This proprietary software and platform represent valuable intellectual property. Unauthorized copying, modification, or distribution is strictly prohibited and subject to legal action.
+
+For partnerships, licensing inquiries, or white-label opportunities, contact: partnerships@documentintelligence.com

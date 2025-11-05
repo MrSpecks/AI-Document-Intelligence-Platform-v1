@@ -1,151 +1,134 @@
 # Security & Compliance
 
-## Table of Contents
+## Important Notice
 
-1. [Certifications & Compliance](#certifications--compliance)
-2. [Security Architecture](#security-architecture)
-3. [Data Protection](#data-protection)
-4. [Vulnerability Management](#vulnerability-management)
-5. [Incident Response](#incident-response)
-6. [Security Features](#security-features)
-7. [Authorized Security Testing](#authorized-security-testing)
-8. [Third-Party Security](#third-party-security)
-9. [User Security Best Practices](#user-security-best-practices)
-10. [Compliance Attestations](#compliance-attestations)
-11. [SLA & Availability](#sla--availability)
-12. [Contact Information](#contact-information)
+This document describes the security architecture and practices of the AI Document Intelligence Platform **as currently implemented**.
+
+**Certification Status:** The platform is in early-stage development (MVP). We do not currently hold any formal security certifications (SOC 2, HIPAA, ISO 27001, GDPR compliance audit, etc.). Security certifications are planned for future development phases as the platform matures.
 
 ---
 
-## Certifications & Compliance
+## Table of Contents
 
-### Current Certifications
+1. [Current Security Implementation](#current-security-implementation)
+2. [Security Architecture](#security-architecture)
+3. [Data Protection](#data-protection)
+4. [Vulnerability Management](#vulnerability-management)
+5. [Incident Response & Support](#incident-response--support)
+6. [Security Features](#security-features)
+7. [Third-Party Dependencies](#third-party-dependencies)
+8. [Security Best Practices for Users](#security-best-practices-for-users)
+9. [Future Compliance Roadmap](#future-compliance-roadmap)
+10. [Contact Information](#contact-information)
 
-#### **SOC 2 Type II** ✅
-- **Audit Firm**: Big Four Accounting Firm (Annual audit)
-- **Scope**: Security, Availability, Processing Integrity, Confidentiality
-- **Report Period**: January - December (Annual)
-- **Status**: Certified
-- **Attestation**: Available under NDA (contact security@documentintelligence.com)
+---
 
-#### **HIPAA-Ready** ✅
-- **Certification Level**: HIPAA-compliant infrastructure
-- **Covered Entity Status**: BAA (Business Associate Agreement) available
-- **Data Handling**: Protected Health Information (PHI) support
-- **Encryption**: AES-256 for PHI at rest and in transit
-- **Audit Logging**: Complete audit trail for HIPAA compliance
+## Current Security Implementation
 
-#### **GDPR-Compliant** ✅
-- **Data Processing**: GDPR-compliant data processing
-- **DPA**: Data Processing Agreement (DPA) available
-- **Data Residency**: EU data stored in EU
-- **Right to Erasure**: Automatic document deletion available
-- **DPIA**: Data Protection Impact Assessments available
+### What We Have Implemented
 
-#### **CCPA-Compliant** ✅
-- **Consumer Rights**: Support for all CCPA consumer rights
-- **Privacy Notice**: Comprehensive privacy disclosures
-- **Data Sale Restrictions**: We do not sell personal data
-- **Opt-Out Mechanisms**: One-click opt-out available
-- **Vendor Management**: Strict vendor privacy requirements
+The platform includes security-focused architecture and practices:
 
-#### **ISO 27001-Ready** ✅
-- **Information Security**: ISO 27001 compliant processes
-- **Certification Status**: Pending (projected Q2 2025)
-- **Management System**: Full ISMS (Information Security Management System) implemented
-- **Regular Assessment**: Quarterly internal audits
+**Authentication & Authorization:**
+- ✅ Supabase Auth with email/password and OAuth 2.0 support
+- ✅ JWT-based API authentication
+- ✅ Role-based access control (RBAC) with user/admin/manager roles
+- ✅ Row-level security (RLS) policies in PostgreSQL database
 
-### Compliance Roadmap
+**Data Encryption:**
+- ✅ HTTPS/TLS 1.3 for all connections
+- ✅ Passwords hashed with bcrypt
+- ✅ Document storage in Supabase with encryption support
+- ✅ API keys for user authentication
 
-| Standard | Current | Q2 2025 | Q3 2025 | Notes |
-|----------|---------|---------|---------|-------|
-| SOC 2 Type II | ✅ Certified | Renew | - | Annual renewal |
-| HIPAA | ✅ Ready | - | - | On-demand BAAs |
-| GDPR | ✅ Compliant | - | - | Continuous compliance |
-| CCPA | ✅ Compliant | - | - | Continuous compliance |
-| ISO 27001 | 🔄 In Progress | ✅ Certified | - | Q2 2025 target |
-| ISO 9001 | 📅 Planned | - | ✅ Certified | Q3 2025 target |
-| FedRAMP | 📅 Roadmap | - | - | Future consideration |
-| PCI DSS | ⚠️ N/A | - | - | Not applicable (no card processing) |
+**Code Security:**
+- ✅ TypeScript with strict type checking (prevents many common vulnerabilities)
+- ✅ Input validation on API endpoints
+- ✅ SQL injection prevention through parameterized queries
+- ✅ CSRF protection via SameSite cookies
+- ✅ Rate limiting on API endpoints
+- ✅ Error boundary components for error handling
+
+**Development Practices:**
+- ✅ Dependency scanning (npm audit, Dependabot integration)
+- ✅ Code review process via Git pull requests
+- ✅ Secure environment variable management (no secrets in code)
+- ✅ Open source components from trusted providers (Next.js, React, TypeScript)
+
+### What We Do NOT Have (Yet)
+
+**Not Implemented:**
+- ❌ SOC 2 Type II certification (not audited)
+- ❌ HIPAA compliance (healthcare-grade features not implemented)
+- ❌ GDPR audit/certification (compliance features exist but not audited)
+- ❌ ISO 27001 certification (not audited)
+- ❌ 24/7 security monitoring (not staffed)
+- ❌ Dedicated security operations center
+- ❌ Commercial breach insurance
+- ❌ Formal incident response team
+- ❌ Penetration testing by external firms
+- ❌ SLA guarantees (service available on best-effort basis)
+
+**Why These Limitations Exist:**
+This is an early-stage MVP (minimum viable product) built by a small team. Enterprise-grade security certifications require significant infrastructure, staffing, audit costs, and insurance. These are planned for future versions as the platform grows.
 
 ---
 
 ## Security Architecture
 
-### Defense in Depth
+### Defense in Depth Approach
 
 The platform implements multiple security layers:
 
 ```
-┌────────────────────────────────────────────────────────┐
-│  Client Applications (Your Code)                       │
-│  - Validate inputs before upload                       │
-│  - Use HTTPS connections only                          │
-│  - Store API keys securely                             │
-└─────────────────┬────────────────────────────────────┘
-                  │
+┌────────────────────────────────────────────────────┐
+│  Client Application (Your Code)                    │
+│  - Validate inputs before API calls                │
+│  - Use HTTPS connections only                      │
+│  - Store API keys securely                         │
+└──────────────────┬─────────────────────────────────┘
+                   │
          [HTTPS with TLS 1.3]
-                  │
-┌─────────────────▼────────────────────────────────────┐
-│  API Gateway                                          │
-│  - Rate limiting (5-100 req/min by tier)              │
-│  - DDoS protection                                    │
-│  - Request validation                                 │
-│  - IP whitelisting (enterprise)                       │
-└─────────────────┬────────────────────────────────────┘
-                  │
-┌─────────────────▼────────────────────────────────────┐
-│  Authentication & Authorization                       │
-│  - API Key authentication                             │
-│  - JWT token validation                               │
-│  - OAuth 2.0 support                                  │
-│  - SAML 2.0 (enterprise)                              │
-│  - RBAC enforcement                                   │
-└─────────────────┬────────────────────────────────────┘
-                  │
-┌─────────────────▼────────────────────────────────────┐
-│  Application Layer                                    │
-│  - Input validation and sanitization                  │
-│  - SQL injection prevention (parameterized queries)   │
-│  - XSS protection                                     │
-│  - Business logic validation                          │
-└─────────────────┬────────────────────────────────────┘
-                  │
-┌─────────────────▼────────────────────────────────────┐
-│  Database Layer (PostgreSQL)                          │
-│  - Row-Level Security (RLS) policies                  │
-│  - Encryption at rest (AES-256)                       │
-│  - Encrypted connections                              │
-│  - Backup encryption                                  │
-│  - Audit logging                                      │
-└──────────────────────────────────────────────────────┘
+                   │
+┌──────────────────▼─────────────────────────────────┐
+│  Next.js API Layer                                 │
+│  - Input validation and sanitization               │
+│  - Rate limiting (per endpoint)                    │
+│  - JWT verification                                │
+└──────────────────┬─────────────────────────────────┘
+                   │
+┌──────────────────▼─────────────────────────────────┐
+│  Supabase Auth & Database                          │
+│  - Row-level security (RLS) policies               │
+│  - PostgreSQL with parameterized queries           │
+│  - Encrypted connections                           │
+│  - User-isolated data access                       │
+└────────────────────────────────────────────────────┘
 ```
 
-### Security Controls
+### Security Controls Implemented
 
 **Preventive Controls:**
-- Input validation and sanitization
-- Authentication and authorization
-- Encryption (in transit and at rest)
-- Rate limiting and DDoS protection
-- SQL injection prevention
-- XSS protection
-- CSRF protection
+- Type-safe code with TypeScript strict mode
+- Input validation on all API endpoints
+- Parameterized SQL queries (Supabase)
+- HTTPS/TLS encryption for all connections
+- Authentication required for protected routes
+- Role-based access control (RBAC)
+- Rate limiting on API endpoints
+- Secure password hashing (bcrypt)
 
 **Detective Controls:**
-- Comprehensive audit logging
-- Real-time alerts
-- Anomaly detection
-- Security event monitoring
-- Vulnerability scanning
-- Penetration testing
+- Error logging and error boundaries
+- Application error tracking (Sentry integration available)
+- Database audit logs (via Supabase)
+- Version control history (Git)
 
 **Corrective Controls:**
-- Incident response procedures
-- Breach notification process
-- Security patches and updates
-- Key rotation procedures
-- Backup and recovery
+- Error handling and graceful degradation
+- Backup and recovery (via Supabase automated backups)
+- Incident response procedures documented below
+- Security patches for dependencies
 
 ---
 
@@ -154,653 +137,446 @@ The platform implements multiple security layers:
 ### Encryption Standards
 
 **Encryption in Transit:**
-- **Protocol**: TLS 1.3 (all connections)
-- **Cipher Suites**: Modern, secure cipher suites only
-- **Certificate**: Valid SSL/TLS certificate for all domains
-- **HSTS**: HTTP Strict-Transport-Security enabled (1 year max-age)
-- **Perfect Forward Secrecy**: Enabled for all connections
+- **Protocol**: TLS 1.3 (all HTTPS connections)
+- **Enforcement**: All API endpoints require HTTPS
+- **Implementation**: Handled by Vercel (hosting) and Supabase
+- **Certificate**: Valid SSL/TLS certificates (auto-renewed by providers)
 
-**Encryption at Rest:**
-- **Algorithm**: AES-256-GCM (NIST-approved)
-- **Key Management**: AWS KMS or customer-managed keys
-- **Key Rotation**: Annual rotation (more frequent available)
-- **Key Storage**: Hardware Security Module (HSM) for enterprise
-- **Backup Encryption**: All backups encrypted with same key
+**Passwords:**
+- **Hashing**: bcrypt with salt (via Supabase Auth)
+- **Never transmitted in plain text**: Always over HTTPS
+- **No password reset links via email**: Magic link authentication used
+
+**API Keys & Secrets:**
+- **Storage**: Environment variables only (not in code)
+- **Management**: Via Vercel and local `.env.local` (not committed)
+- **Format**: Secure random strings generated by services
+
+**Document Storage:**
+- **Location**: Supabase Storage (AWS S3-compatible)
+- **Encryption**: Service-managed encryption available
+- **Access**: Protected by Supabase RLS policies
+- **User isolation**: Each user can only access their own documents
 
 ### Data Classification
 
-Documents are classified by sensitivity:
+Documents in the system are handled as:
 
-| Classification | Encryption | Access Control | Retention | Examples |
-|---------------|-----------|-----------------|-----------|----------|
-| **Public** | Standard (AES-256) | Role-based | Per policy | Dummy test documents |
-| **Internal** | Standard (AES-256) | Authenticated users | Per contract | Customer documents |
-| **Confidential** | Enhanced | Restricted access | Minimal | Financial/legal docs |
-| **Restricted** | Enhanced + HSM | Audit required | Minimal | Healthcare/PII data |
+| Level | Access Control | Encryption | Example |
+|-------|----------------|-----------|---------|
+| **Private** | User + Admin only | HTTPS + service encryption | User's documents |
+| **Test** | User only | HTTPS | Test/demo documents |
 
 ### Data Residency
 
-**Default (Multi-Region):**
-- Data stored in secure AWS data centers
-- Automatic replication for redundancy
-- Encryption across regions
+**Current:**
+- Data stored by Supabase (AWS-backed, geographic region configurable)
+- Default US region (configurable per customer if on enterprise plan)
+- No automatic EU residency (contact support for custom setup)
 
-**EU Data Residency (GDPR):**
-- All EU data stored in EU data centers only
-- No transfer to US or other regions
-- GDPR Article 44 compliant
+**Future:**
+- EU data residency options planned
+- On-premise deployment options under development
 
-**Custom Residency (Enterprise):**
-- On-premise deployment available
-- Single-region storage options
-- Custom encryption keys
-- Full data control
+### Data Retention
 
-### Data Retention & Deletion
+**Current Policy:**
+- **Free/Starter**: Documents retained until user deletes them
+- **Professional/Enterprise**: Custom retention per agreement
 
-**Automatic Deletion:**
-- **Free/Starter**: Documents deleted after 30 days (unless explicit retention)
-- **Professional**: Documents retained 90 days (configurable)
-- **Enterprise**: Custom retention per agreement
-
-**Manual Deletion:**
-- Delete documents anytime via API
-- Immediate deletion from databases
-- Secure deletion from backups (30-day schedule)
-- Audit log preserved (separate retention)
-
-**Right to Erasure (GDPR):**
-- Full compliance with GDPR Article 17
-- One-click data deletion available
-- Confirmation of complete erasure
-- Audit trail of deletion
+**Deletion:**
+- Users can delete documents anytime via API/dashboard
+- Deleted documents removed from active database
+- Backups retained per standard schedule (check with Supabase)
+- Audit logs may be retained longer for troubleshooting
 
 ---
 
 ## Vulnerability Management
 
-### Vulnerability Disclosure Policy
+### Responsible Disclosure
 
-**We take security seriously.** If you discover a security vulnerability:
+We take security vulnerabilities seriously. If you discover a vulnerability:
 
-### 1. Responsible Disclosure
+**How to Report:**
+1. **Email**: security@documentintelligence.com (for current contact, check GitHub profile)
+2. **DO NOT** publicly disclose before we've had time to patch
+3. **Include**: Vulnerability description, impact, proof-of-concept if possible
+4. **Wait**: We commit to responding within 48 hours on a best-effort basis
 
-**DO:**
-- ✅ Report vulnerabilities privately to security@documentintelligence.com
-- ✅ Include detailed technical information
-- ✅ Allow 90 days for us to patch before public disclosure
-- ✅ Use encrypted email (PGP key available upon request)
+**What Happens Next:**
+1. We assess and reproduce the vulnerability
+2. We develop and test a fix
+3. We deploy the patch
+4. We notify you and provide credit if you wish
+5. We may issue a security advisory
 
-**DON'T:**
-- ❌ Publicly disclose vulnerabilities before we've patched
-- ❌ Exploit vulnerabilities for personal gain
-- ❌ Access other users' data
-- ❌ Disrupt service availability
-- ❌ Share vulnerability details with third parties
+**Important:** This is not a bug bounty program. We appreciate responsible disclosure but cannot currently offer financial rewards.
 
-### 2. Disclosure Process
+### Dependency Security
 
-```
-1. You discover vulnerability
-   ↓
-2. Email security@documentintelligence.com with:
-   - Vulnerability description
-   - Impact assessment
-   - Proof of concept (if applicable)
-   - Suggested fix (if any)
-   ↓
-3. We acknowledge receipt within 24 hours
-   ↓
-4. We assess and reproduce the vulnerability
-   ↓
-5. We develop and test a fix
-   ↓
-6. We deploy patch (typically within 30 days)
-   ↓
-7. We notify you of patch and provide credit
-   ↓
-8. You may disclose publicly (after patch deployment)
-```
+**How We Manage Dependencies:**
+- ✅ Regular `npm audit` checks
+- ✅ Dependabot enabled for GitHub
+- ✅ Security updates prioritized
+- ✅ Monthly dependency audits
+- ✅ Version pinning for stability
 
-### 3. Researcher Recognition
+**Third-Party Libraries Used:**
+- **Next.js 14** – Web framework (maintained by Vercel)
+- **React 18** – UI framework (maintained by Meta)
+- **TypeScript** – Type safety
+- **Supabase** – Backend (open source, self-hostable)
+- **Stripe** – Payment processing
+- **shadcn/ui** – Component library
+- **Tailwind CSS** – Styling
+- **React Hook Form** – Form handling
+- **tRPC** – Type-safe APIs
 
-Responsible researchers who disclose vulnerabilities receive:
-- ✅ Public credit in security advisory
-- ✅ Acknowledgment on our website
-- ✅ Security researcher badge
-- ✅ 6-month free Professional plan subscription
-- ✅ Invitation to join our security advisory board
+All major dependencies are from established, well-maintained projects with active security practices.
 
-### 4. Out of Scope
+### No Formal Penetration Testing
 
-We do NOT reward reports for:
-- Social engineering attempts
-- Phishing attacks
-- Password brute-forcing
-- Missing rate limits (documented)
-- Information disclosure of public information
-- Issues in third-party libraries
-- Issues in your own deployment
+**Current Status:**
+- No formal penetration tests scheduled
+- No external security audits performed
+- Code review happens during pull requests
+- Internal security review before deployments
 
-### 5. Security Contact
-
-**Security Email**: security@documentintelligence.com
-**PGP Key**: Available at https://keys.documentintelligence.com/security.asc
-**Response Time**: 24 hours initial response guaranteed
+**Future:**
+- Penetration testing may be added as platform grows
+- Third-party security audit may be commissioned for enterprise versions
 
 ---
 
-## Incident Response
+## Incident Response & Support
+
+### What We Commit To
+
+**Response Times (Best-Effort):**
+- Security issues: Response within 48 hours
+- Outages: Monitored during business hours (South Africa time)
+- Critical bugs: Patched as quickly as possible
+
+**Limitations:**
+- No 24/7 on-call support (this is an MVP)
+- No dedicated security operations center
+- No formal SLA guarantees
+- Uptime depends on Vercel and Supabase availability
 
 ### Incident Response Plan
 
-**Our commitment**: Rapid identification, containment, and remediation of security incidents.
+**When Something Goes Wrong:**
 
-### 1. Detection & Reporting
+1. **Detection**
+   - User reports issue → GitHub issue or email
+   - Monitoring alerts (basic error tracking)
+   - We investigate and assess severity
 
-**Monitoring:**
-- 24/7 security event monitoring
-- Automated alerts for suspicious activity
-- Real-time anomaly detection
-- User-reported security concerns
+2. **Response**
+   - Acknowledge issue within 24 hours
+   - Develop and test fix
+   - Deploy patch
+   - Notify affected users
 
-**Escalation:**
-- Critical incidents: Immediate escalation to CISO
-- Severity assessment within 1 hour
-- Incident team activated
-- Customers notified if required
+3. **Communication**
+   - For minor issues: Email to affected users
+   - For security issues: May post security advisory
+   - For outages: Updates via GitHub status page (when applicable)
 
-### 2. Containment
+4. **Post-Incident**
+   - Document what happened
+   - Update systems to prevent recurrence
+   - Share learnings with team
 
-**Immediate Actions (within 1 hour):**
-- Isolate affected systems if necessary
-- Prevent further unauthorized access
-- Preserve evidence for investigation
-- Begin forensic analysis
-
-### 3. Investigation
-
-**Investigation Process:**
-- Determine root cause
-- Assess scope of compromise
-- Analyze affected data
-- Review access logs and events
-- Involve law enforcement if criminal activity
-
-### 4. Remediation & Recovery
-
-**Remediation:**
-- Develop and test security patch
-- Deploy fix to production
-- Verify fix effectiveness
-- Document changes made
-
-**Recovery:**
-- Restore from clean backups if necessary
-- Verify data integrity
-- Restore service availability
-- Communicate recovery status
-
-### 5. Notification
-
-**Breach Notification:**
-- Notify affected individuals within 72 hours (GDPR requirement)
-- Notification includes:
-  - What happened
-  - What data was affected
-  - Mitigation steps being taken
-  - What users should do
-  - Contact information for questions
-
-**Regulatory Notification:**
-- GDPR: Notify supervisory authority if required
-- HIPAA: Notify HHS if PHI compromised
-- CCPA: Notify California Attorney General
-- State Laws: Notify state authorities as required
-
-### 6. Post-Incident
-
-**Post-Incident Review:**
-- Conduct root cause analysis
-- Identify improvements
-- Update security controls
-- Train team on lessons learned
-- Update incident response plan
-
-**Transparency:**
-- Public security advisory published
-- Details about vulnerability and fix
-- Timeline of incident
-- Recommended actions for users
-- Recognition of researcher (if applicable)
+**Note:** We do not have formal incident response team, CISO, or breach insurance at this stage.
 
 ---
 
 ## Security Features
 
-### Authentication & Authorization
+### Authentication
 
 **User Authentication:**
-- Username/password with secure hashing (bcrypt)
-- Multi-factor authentication (MFA) available
-- OAuth 2.0 (Google, Microsoft, GitHub)
-- Magic links (passwordless)
-- Email verification
+- ✅ Email + password (hashed with bcrypt)
+- ✅ OAuth 2.0 (Google, Microsoft via Supabase)
+- ✅ Magic link / passwordless (email link auth)
+- ✅ Email verification before account access
 
 **API Authentication:**
-- API key authentication
-- JWT token-based authentication
-- OAuth 2.0 for third-party integrations
-- Rate limiting per API key
-- Token expiration and rotation
+- ✅ API key authentication
+- ✅ JWT tokens with expiration
+- ✅ Per-user rate limiting
 
-**Authorization:**
-- Role-based access control (RBAC)
-- Row-level security (RLS) policies
-- Attribute-based access control (ABAC) for enterprise
-- Custom permission models
-- Granular permission management
+**Multi-Factor Authentication:**
+- ⏳ Planned for future (not currently implemented)
 
-### Access Control
+### Authorization & Access Control
 
-**Default Roles:**
-- **Admin**: Full access to organization
-- **Manager**: Can invite users, view reports
-- **User**: Can upload documents, view own documents
-- **Viewer**: Read-only access to documents
-- **Custom**: Enterprise-defined roles
+**User Roles:**
+- **Admin** – Full access to organization and settings
+- **Manager** – Can invite users, view reports
+- **User** – Can upload documents, analyze, view own documents
+- **Viewer** – Read-only access to documents
 
-**Enterprise Controls:**
-- Unlimited custom roles
-- Team-based access
-- Project-based permissions
-- Temporary access grants
-- Access reviews and attestation
-
-### Audit Logging
-
-**Logged Events:**
-- User authentication (login, logout, failed attempts)
-- Document uploads and deletions
-- Analysis requests and results
-- API key creation and rotation
-- Permission changes
-- Export and downloads
-- Account changes
-- Administrative actions
-
-**Audit Trail:**
-- Permanent, tamper-proof logs
-- Includes: user, action, timestamp, resource, IP address
-- Searchable and filterable
-- Retention: Minimum 7 years (enterprise)
-- Export for compliance
-
-**Monitoring:**
-- Real-time alert on suspicious activities
-- Anomaly detection using ML
-- Unusual access patterns flagged
-- Login from new locations reported
+**Database Security:**
+- ✅ Row-level security (RLS) policies enforce user isolation
+- ✅ Users can only access their own documents
+- ✅ No cross-user data leakage
+- ✅ Admin-only operations protected
 
 ### API Security
 
-**Request Validation:**
-- HTTPS only (HTTP disabled)
-- Request signing for critical operations
-- Webhook signature verification
-- Input validation and sanitization
+**Request Security:**
+- ✅ HTTPS required (HTTP redirected)
+- ✅ Input validation on all endpoints
+- ✅ SQL injection prevention (parameterized queries via Supabase)
+- ✅ XSS protection (React escaping)
 
 **Rate Limiting:**
-- Free: 10 req/minute
-- Starter: 30 req/minute
-- Professional: 100 req/minute
-- Enterprise: Custom limits
+- ✅ API rate limits per user/API key
+- ✅ Limits vary by subscription tier
+- ✅ Prevents abuse and DDoS-like behavior
 
-**CORS & CSRF Protection:**
-- Configurable CORS policies
-- CSRF token validation
-- SameSite cookie policy
-- Origin validation
+**Webhook Security:**
+- ⏳ Webhook signature verification planned
+- ✅ HTTPS-only webhook delivery
 
-### Data Security
+### Logging & Monitoring
 
-**Data in Transit:**
-- TLS 1.3 for all connections
-- Forward secrecy enabled
-- Perfect forward secrecy
-- Certificate pinning (mobile apps)
+**What We Log:**
+- ✅ Authentication events (login, logout, failures)
+- ✅ Document uploads and analysis
+- ✅ API usage
+- ✅ Error messages and stack traces
+- ✅ Database access (via Supabase RLS)
 
-**Data at Rest:**
-- AES-256-GCM encryption
-- Database encryption
-- Backup encryption
-- Key encryption keys (KEK) secured
+**Retention:**
+- Development/staging: Logs kept indefinitely
+- Production: Dependent on provider (Supabase, Vercel)
 
-**Data in Use:**
-- Memory encryption (if available)
-- Minimal data in memory
-- Secure disposal after processing
-- No sensitive data in logs
+**What We DON'T Log:**
+- ❌ Passwords or API keys
+- ❌ Sensitive document content (only metadata)
+- ❌ Personal user data beyond what's necessary
+- ❌ Full request/response bodies for sensitive operations
 
-### Infrastructure Security
+### Infrastructure
 
-**Cloud Infrastructure:**
-- AWS security best practices
-- VPC isolation (private networks)
-- Security groups (firewall rules)
-- Auto-scaling with auto-recovery
-- WAF (Web Application Firewall)
-- DDoS protection
+**Hosting:**
+- ✅ Vercel (managed hosting, automatic scaling)
+- ✅ Supabase (managed PostgreSQL, encrypted storage)
+- ✅ Stripe (PCI-compliant payment processing)
 
-**Network Security:**
-- Private database networks
-- VPN access for enterprise
-- Network segmentation
-- Intrusion detection system (IDS)
-- Intrusion prevention system (IPS)
-
-**Container Security:**
-- Container image scanning
-- Runtime protection
-- Pod security policies
-- Network policies
+**Not Self-Hosted:**
+- No on-premise deployment yet
+- No private cloud option yet
+- Planned for future enterprise versions
 
 ---
 
-## Third-Party Security
+## Third-Party Dependencies
 
-### Third-Party Vendors
+### Providers We Rely On
 
-All third-party vendors undergo security assessment:
+**Infrastructure:**
+- **Vercel** – App hosting (managed by Vercel, infrastructure security their responsibility)
+- **Supabase** – Database & auth (PostgreSQL, open-source backend)
+- **AWS** – Cloud infrastructure (via Supabase and Vercel)
 
-**Vendor Assessment Includes:**
-- SOC 2 certification or equivalent
-- Data handling practices
-- Security policies and procedures
-- Incident response procedures
-- Business continuity plans
-- Regular re-assessment
+**Services:**
+- **Stripe** – Payment processing (PCI-DSS compliant, third-party security)
+- **OpenRouter** – LLM API (third-party service, security depends on OpenRouter)
 
-**Key Vendors:**
-- **AWS** – Cloud infrastructure (ISO 27001, SOC 2)
-- **Stripe** – Payment processing (PCI DSS, SOC 2)
-- **OpenRouter** – LLM API (TBD)
-- **Auth0** – Authentication (SOC 2, GDPR)
-- **Sentry** – Error tracking (SOC 2)
+**Libraries & Frameworks:**
+- See [package.json](./package.json) for complete list
+- All major dependencies are from established projects
+- Dependency updates handled via npm and Dependabot
 
-### Dependency Management
+### Our Responsibility
 
-**Software Dependencies:**
-- Regular dependency updates
-- Security vulnerability scanning
-- Automated patching
-- License compliance monitoring
-- Software composition analysis (SCA)
+We are responsible for:
+- ✅ How we use these services (securely)
+- ✅ Protecting API keys and credentials
+- ✅ Securing our code and configuration
+- ✅ Encrypting data in transit
 
-**Scanning Tools:**
-- GitHub Dependabot
-- Snyk security scanning
-- OWASP dependency checker
-- License compliance checker
+Third-party providers are responsible for:
+- ✅ Their own infrastructure security
+- ✅ Their compliance and certifications
+- ✅ Data protection on their systems
+
+**Important:** Using third-party services means you also trust their security practices. Review their security documentation (Stripe, Supabase, etc.) if handling sensitive data.
 
 ---
 
-## User Security Best Practices
+## Security Best Practices for Users
 
 ### Protecting Your Account
 
 **Password Security:**
-- ✅ Use strong, unique passwords (12+ characters)
-- ✅ Include upper, lower, numbers, symbols
-- ✅ Use a password manager
-- ✅ Don't reuse passwords across services
-- ❌ Don't share passwords
-- ❌ Don't write passwords down
-
-**Multi-Factor Authentication (MFA):**
-- ✅ Enable MFA on your account
-- ✅ Use authenticator app (TOTP)
-- ✅ Keep backup codes in safe location
-- ✅ Use hardware security keys if available
-- ❌ Don't use SMS for sensitive accounts (weak)
+- ✅ Use a strong, unique password (12+ characters)
+- ✅ Use a password manager (Bitwarden, 1Password, LastPass)
+- ✅ Enable passwordless login if available (magic links)
+- ❌ Don't reuse passwords across services
+- ❌ Don't share your password with anyone
 
 **API Key Management:**
-- ✅ Rotate API keys regularly (every 90 days)
-- ✅ Use separate keys for different applications
-- ✅ Store keys in environment variables
-- ✅ Use secrets manager for production
-- ✅ Limit key permissions to minimum needed
-- ❌ Don't commit keys to version control
-- ❌ Don't share keys via email or Slack
+- ✅ Treat API keys like passwords – keep them secret
+- ✅ Store in environment variables, never in code
+- ✅ Rotate keys periodically
+- ✅ Use different keys for different applications/environments
+- ✅ Delete unused keys
+- ❌ Never commit keys to version control
+- ❌ Never share keys via email or chat
+- ❌ Never put keys in logs or error messages
 
-### Secure Integration Practices
+### Secure API Integration
 
-**API Integration:**
+**When Using Our API:**
 ```
 ✅ DO:
 - Use HTTPS for all requests
 - Validate SSL certificates
-- Implement exponential backoff
-- Store credentials securely
-- Log API calls for audit
+- Implement exponential backoff for retries
+- Store credentials securely (env vars, secrets manager)
 - Validate webhook signatures
-- Rate limit your requests
+- Rate-limit your requests
 - Handle errors gracefully
+- Log API calls for debugging
 
 ❌ DON'T:
-- Hardcode API keys in code
-- Log sensitive data
-- Trust user input
-- Ignore SSL warnings
+- Hardcode credentials in code
+- Log sensitive data (passwords, keys, PII)
+- Trust user input without validation
+- Use HTTP for sensitive data
 - Retry indefinitely
 - Store credentials in cookies
-- Use HTTP for sensitive requests
+- Share credentials via communication channels
+- Rely on security through obscurity
 ```
 
-**Document Upload Security:**
-- Scan files for malware before upload (optional)
-- Validate file types and sizes
-- Use secure file transfer
-- Don't upload sensitive documents to test accounts
-- Archive sensitive documents securely
+### Document Upload Security
 
-### Monitoring Your Account
+**When Uploading Documents:**
+- ✅ Review what you're uploading (avoid unnecessary sensitive data)
+- ✅ Use HTTPS (browser will enforce this)
+- ✅ Keep your login secure (strong password, don't reuse)
+- ✅ Be aware data is stored on our servers
+- ❌ Don't upload documents you don't have permission to upload
+- ❌ Don't upload unencrypted sensitive data without understanding the risks
+- ❌ Don't assume uploads are permanent (follow retention policy)
 
-**Security Review Checklist:**
-- [ ] Review active sessions regularly
+### Account Monitoring
+
+**Regularly Check:**
+- [ ] Review active sessions
 - [ ] Check login history for unauthorized access
-- [ ] Verify API keys are in use
-- [ ] Review access logs
-- [ ] Check subscription and billing
-- [ ] Verify email address is current
+- [ ] Verify API keys in use
 - [ ] Review team members and permissions
-- [ ] Check integrations are authorized
-
-**Alerts to Monitor:**
-- New device login
-- New API key created
-- API key rotated
-- Document downloaded
-- Unusual activity
-- Failed login attempts
-- Permission changes
+- [ ] Check billing and subscription status
+- [ ] Verify email address is current and correct
 
 ---
 
-## Compliance Attestations
+## Future Compliance Roadmap
 
-### SOC 2 Type II
+### Planned Certifications (As Platform Grows)
 
-**Scope:** Security, Availability, Processing Integrity, Confidentiality
-**Latest Audit:** January - December 2024
-**Auditor:** [Big Four Firm]
-**Report Availability:** Under NDA (email security@documentintelligence.com)
+These are **aspirations**, not commitments. Timeline and resources dependent on business needs:
 
-**Attestation:** The AI Document Intelligence Platform has been independently audited and found to operate in accordance with the AICPA's SOC 2 Trust Service Criteria for Security, Availability, Processing Integrity, and Confidentiality for the period [dates].
+| Certification | Target | Notes |
+|---------------|--------|-------|
+| **ISO 27001** | 2025-2026 | Information security management |
+| **SOC 2 Type II** | 2025-2026 | Security & availability audit |
+| **GDPR Audit** | 2025-2026 | Data protection compliance verification |
+| **HIPAA** | 2026+ | If healthcare features are added |
+| **FedRAMP** | 2026+ | If US government use required |
 
-### HIPAA
+**Important:** These are not commitments. They may not happen, or timelines may change based on business priorities.
 
-**Compliance:** HIPAA-compliant infrastructure
-**BAA Availability:** Required for healthcare use
-**Contact:** security@documentintelligence.com
+### What Compliance Means
 
-**Attestation:** The AI Document Intelligence Platform complies with the Health Insurance Portability and Accountability Act (HIPAA) security and privacy requirements when a Business Associate Agreement (BAA) is executed.
+Once certifications are pursued:
+- **SOC 2 Type II** – Third-party audit of security controls
+- **ISO 27001** – Information security management system audit
+- **GDPR Audit** – Legal review of data handling practices
+- **HIPAA** – Healthcare-specific data protection requirements
 
-### GDPR
-
-**Compliance:** Full GDPR compliance
-**DPA Availability:** Standard DPA provided with professional/enterprise plans
-**Data Residency:** EU data stored in EU
-
-**Attestation:** The AI Document Intelligence Platform complies with the General Data Protection Regulation (GDPR) and has implemented appropriate safeguards for the processing of personal data of EU residents.
-
-### CCPA
-
-**Compliance:** CCPA-compliant processes
-**Consumer Rights:** Fully supported
-**Data Sale:** We do not sell personal data
-
-**Attestation:** The AI Document Intelligence Platform complies with the California Consumer Privacy Act (CCPA) and respects all consumer privacy rights including access, deletion, and opt-out.
+None of these are currently in progress or planned with external vendors.
 
 ---
 
-## SLA & Availability
+## Contact Information
 
-### Service Level Agreement (SLA)
+### Reporting Security Issues
 
-| Tier | Uptime SLA | Response Time | Support |
-|------|-----------|---------------|---------|
-| **Free** | 99.0% | - | Community |
-| **Starter** | 99.5% | 24 hours | Email |
-| **Professional** | 99.9% | 4 hours | Email/Chat |
-| **Enterprise** | 99.95% | 1 hour | Phone/Slack |
-
-### Uptime Guarantee
-
-**Monthly Credits:**
-- Uptime 99.5-99.9%: 10% credit
-- Uptime 99.0-99.5%: 25% credit
-- Uptime <99.0%: 100% credit
-
-**How to Request Credit:**
-1. Contact support@documentintelligence.com
-2. Provide affected time period
-3. Include error logs if applicable
-4. Credit applied to next billing cycle
-
-### Availability Status
-
-**Status Page**: https://status.documentintelligence.com
-- Real-time service status
-- Historical uptime data
-- Planned maintenance schedule
-- Incident reports
-- Subscribe to updates
-
-### Disaster Recovery
-
-**Recovery Time Objective (RTO):** 1 hour
-**Recovery Point Objective (RPO):** 15 minutes
-
-**Backup Strategy:**
-- Hourly incremental backups
-- Daily full backups
-- Cross-region replication
-- 30-day backup retention
-- Regular backup testing
-
-**Redundancy:**
-- Multi-region deployment
-- Automatic failover
-- Load balancing
-- Database replication
-- Stateless application design
-
----
-
-## Security Testing Details
-
-### Penetration Testing
-
-**Schedule:** Bi-annually (June, December)
-**Scope:** All customer-facing systems
-**Methodology:** OWASP Testing Guide
-**Reports:** Shared with enterprise customers under NDA
-
-### Vulnerability Scanning
-
-**Frequency:** Continuous
-**Tools:** OWASP ZAP, Nessus, Qualys
-**Automation:** Integrated into CI/CD pipeline
-**Coverage:** Infrastructure, applications, dependencies
-
-### Security Assessments
-
-**Internal Audits:** Quarterly
-**Third-Party Audits:** Annually
-**Code Review:** Every pull request
-**Dependency Audit:** Monthly
-
----
-
-## Security Contact Information
-
-### Reporting a Vulnerability
-
-**Email:** security@documentintelligence.com
-**PGP Key:** https://keys.documentintelligence.com/security.asc
-**Response Time:** 24 hours guaranteed
+**Email**: security@documentintelligence.com (or contact creator via GitHub)
 
 **Include in Report:**
-- Vulnerability description
-- Affected components
+- Description of vulnerability
+- Steps to reproduce (if applicable)
 - Impact assessment
-- Proof of concept (if available)
-- Suggested remediation
+- Suggested fix (if you have one)
+- Your contact information
 
-### General Security Questions
+**Response Time:** Best-effort within 48 hours
 
-**Email:** security@documentintelligence.com
-**Response Time:** 48 hours
+### General Questions
 
-### Bug Reports (Non-Security)
+**Email**: support@documentintelligence.com
 
-**GitHub:** https://github.com/MrSpecks/AI-Document-Intelligence-Platform-v1/issues
-**Email:** bugs@documentintelligence.com
+**For Support:**
+- Bug reports
+- Security questions
+- Integration help
+- General inquiries
 
----
+### GitHub
 
-## Additional Resources
-
-- **Privacy Policy**: https://documentintelligence.com/privacy
-- **Terms of Service**: https://documentintelligence.com/terms
-- **Compliance Portal**: https://compliance.documentintelligence.com (enterprise)
-- **Security Blog**: https://blog.documentintelligence.com/security
-- **API Documentation**: [API Reference](./docs/api_reference.md)
-- **Developer Guide**: [Developer Guide](./docs/developer_guide.md)
+All code is available on GitHub:
+- **Repository**: https://github.com/MrSpecks/AI-Document-Intelligence-Platform
+- **Issues**: https://github.com/MrSpecks/AI-Document-Intelligence-Platform/issues
+- **Security Policy**: See [SECURITY.md](./SECURITY.md) in repository
 
 ---
 
-## Changelog
+## Legal Disclaimer
 
-| Date | Update |
-|------|--------|
-| 2025-01-15 | Initial security documentation published |
-| TBD | SOC 2 Type II audit completed |
-| TBD | ISO 27001 certification achieved |
-| TBD | FedRAMP authorization (roadmap) |
+**This is an early-stage MVP platform.**
+
+The security features described in this document represent what has been implemented, but:
+
+- ✅ We take security seriously and implement best practices
+- ⚠️ We do NOT have formal security certifications
+- ⚠️ We do NOT have 24/7 monitoring or support
+- ⚠️ We do NOT have formal SLA guarantees
+- ⚠️ We are NOT liable for data loss or security breaches beyond what's covered by our liability limitations in the Terms of Service
+
+**By using this platform, you acknowledge:**
+- You understand the current limitations
+- You are responsible for your own data security practices
+- You understand this is early-stage software
+- You accept the risks associated with early-stage systems
+
+For critical security needs, consider:
+- Self-hosting (on-premise deployment)
+- Enterprise solutions with formal SLAs and certifications
+- Consulting with security professionals before using any new platform
 
 ---
 
-## Questions or Concerns?
+## Questions?
 
-**Contact us:**
-- Email: security@documentintelligence.com
-- Support: support@documentintelligence.com
-- Sales: sales@documentintelligence.com
+This is a complex topic. If anything is unclear:
 
-We're committed to your security and privacy. Thank you for trusting us with your documents.
+1. **Read**: Review this document thoroughly
+2. **Check**: See [CONTRIBUTING.md](./CONTRIBUTING.md) for more info
+3. **Ask**: Email security@documentintelligence.com with questions
+4. **Verify**: Don't just trust marketing materials – ask for verification
 
 ---
 
-**Last Updated:** January 2025 | **Next Review:** April 2025
+**Last Updated:** January 2025
+**Status:** MVP / Early Stage
+**Certifications:** None (planned for future)

@@ -17,15 +17,31 @@
 
 ---
 
+---
+
+## 📢 Development Stage Notice
+
+**Current Status:** Early-stage MVP (Minimum Viable Product)
+
+This documentation describes the AI Document Intelligence Platform vision and roadmap. Many features described represent our target capabilities and are under active development. For current implementation status and security posture, see [SECURITY.md](./SECURITY.md).
+
+**MVP Features Available:**
+- ✅ Core document processing pipeline
+- ✅ Basic RAG analysis capabilities
+- 🔄 Security certifications (planned for 2025-2026)
+- 🔄 Enterprise features (in development)
+
+---
+
 ## Enterprise-Grade Document Analysis & Insights
 
 Transform unstructured business documents into structured, actionable intelligence using advanced AI and Retrieval-Augmented Generation (RAG) technology.
 
 ### 🎯 Platform Overview
 
-**AI Document Intelligence Platform** is a production-ready SaaS solution designed for enterprises, legal firms, accounting practices, and HR agencies that need to extract, analyze, and act on intelligence from complex business documents.
+**AI Document Intelligence Platform** is an AI-powered SaaS solution in active development, designed for enterprises, legal firms, accounting practices, and HR agencies that need to extract, analyze, and act on intelligence from complex business documents.
 
-Process invoices, contracts, CVs, company profiles, and custom documents with **98%+ accuracy** using our proprietary RAG pipeline and multi-model AI orchestration.
+Process invoices, contracts, CVs, company profiles, and custom documents using our RAG pipeline and multi-model AI orchestration. **Note:** Performance metrics are based on development testing and target goals.
 
 ---
 
@@ -62,14 +78,16 @@ Process invoices, contracts, CVs, company profiles, and custom documents with **
 
 ## 📊 Platform Capabilities
 
+**Note:** The following represents target capabilities. See [SECURITY.md](./SECURITY.md) for current implementation status.
+
 | Capability | Description |
 |-----------|-------------|
 | **Document Types** | Invoices, Contracts, CVs, Company Profiles, Tenders, Custom Documents |
-| **Processing Speed** | 30-60 seconds per document (average) |
-| **Accuracy Rate** | 98%+ entity extraction, 95%+ compliance detection |
+| **Processing Speed** | Target: 30-60 seconds per document (varies by complexity) |
+| **Accuracy Target** | Goal: High-accuracy entity extraction and compliance detection |
 | **Supported Formats** | PDF, DOCX, TXT, PNG, JPG, TIFF |
 | **Max File Size** | 10 MB per document |
-| **Languages** | English (Additional languages in roadmap) |
+| **Languages** | English (Additional languages in development) |
 
 ---
 
@@ -117,12 +135,12 @@ See [Architecture Guide](./docs/architecture.md) for complete technical details.
 
 ## 📋 Requirements & Licensing
 
-**AI Document Intelligence Platform** is a licensable, proprietary SaaS solution.
+**AI Document Intelligence Platform** is a licensable, proprietary SaaS solution currently in MVP development.
 
-- **Pricing Models**: Per-document, per-user, per-month subscriptions
-- **Deployment Options**: Cloud-hosted SaaS, On-premise, Hybrid
-- **SLA**: 99.9% uptime guarantee with enterprise support
-- **Compliance**: SOC 2 Type II, HIPAA-ready, GDPR-compliant
+- **Pricing Models**: Per-document, per-user, per-month subscriptions (planned)
+- **Deployment Options**: Cloud-hosted SaaS (current), On-premise/Hybrid (roadmap)
+- **Service Level**: Best-effort support (formal SLAs planned for enterprise tier)
+- **Security Roadmap**: Architecture designed with SOC 2, HIPAA, and GDPR requirements in mind (certifications planned for 2025-2026, see [SECURITY.md](./SECURITY.md))
 
 For licensing inquiries, see [CONTRIBUTING.md](./CONTRIBUTING.md#licensing-partnerships).
 
@@ -130,13 +148,18 @@ For licensing inquiries, see [CONTRIBUTING.md](./CONTRIBUTING.md#licensing-partn
 
 ## 🔒 Security & Privacy
 
-- End-to-end encryption for document transmission
+**Current Implementation:**
+- HTTPS/TLS 1.3 for document transmission
 - Role-based access control (RBAC)
-- Audit logging for compliance
-- Data residency options
-- Regular security audits
+- Audit logging capabilities
+- Password hashing with bcrypt
 
-See [SECURITY.md](./SECURITY.md) for full security disclosure and compliance details.
+**Planned Features:**
+- Additional data residency options
+- Third-party security audits
+- Compliance certifications
+
+See [SECURITY.md](./SECURITY.md) for complete security disclosure, current capabilities, and honest assessment of limitations.
 
 ---
 

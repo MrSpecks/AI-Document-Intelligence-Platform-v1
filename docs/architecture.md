@@ -1,5 +1,7 @@
 # Technical Architecture
 
+> **Development Status:** This document describes the target architecture. Implementation is in active development. See [SECURITY.md](../SECURITY.md) for current deployment status.
+
 ## System Overview
 
 The AI Document Intelligence Platform uses a modern, scalable architecture combining document processing, semantic search, and large language models.
@@ -131,30 +133,32 @@ User Query → Embed Query → Vector Search → Retrieve Top-K Chunks
 
 ### Security & Compliance
 - **Auth**: Supabase Auth + JWT
-- **Encryption**: AES-256 for documents, TLS 1.3 for transit
+- **Encryption**: TLS 1.3 for transit, service-managed encryption for storage
 - **RLS**: Row-level security in database
-- **Audit**: Complete audit logging
-- **Compliance**: SOC 2 Type II, HIPAA-ready, GDPR
+- **Audit**: Audit logging capabilities
+- **Compliance Roadmap**: Architecture designed with SOC 2, HIPAA, and GDPR requirements in mind (certifications planned, see [SECURITY.md](../SECURITY.md))
 
 ---
 
 ## Performance Characteristics
 
-### Processing Speed
-- **Text Extraction**: 2-5 seconds
-- **Embedding Generation**: 5-10 seconds (50 chunks)
-- **LLM Analysis**: 10-30 seconds
-- **Total**: 30-60 seconds per document
+**Note:** The following represents target performance goals based on development testing.
 
-### Scalability
-- **Throughput**: 1,000+ documents/day per instance
-- **Concurrency**: Horizontal scaling with load balancing
-- **Latency**: <100ms API response (after processing)
+### Processing Speed (Target)
+- **Text Extraction**: Target 2-5 seconds
+- **Embedding Generation**: Target 5-10 seconds (50 chunks)
+- **LLM Analysis**: Target 10-30 seconds
+- **Total**: Target 30-60 seconds per document
 
-### Accuracy
-- **Entity Extraction**: 98%+ precision
-- **Risk Detection**: 95%+ recall
-- **Compliance Checking**: 99%+ accuracy
+### Scalability Goals
+- **Throughput**: Designed for 1,000+ documents/day per instance
+- **Concurrency**: Architecture supports horizontal scaling
+- **Latency**: Target <100ms API response (after processing)
+
+### Quality Goals
+- **Entity Extraction**: High precision target
+- **Risk Detection**: High recall target
+- **Compliance Checking**: High accuracy target
 
 ---
 
@@ -181,22 +185,22 @@ User Query → Embed Query → Vector Search → Retrieve Top-K Chunks
 
 ## Deployment Options
 
-### 1. Cloud-Hosted SaaS
-- Multi-tenant, fully managed
-- Automatic scaling
-- Regular backups and monitoring
-- 99.9% SLA
+### 1. Cloud-Hosted SaaS (Current)
+- Multi-tenant architecture
+- Automatic scaling capabilities
+- Regular backups
+- Best-effort availability (formal SLA planned for enterprise tier)
 
-### 2. On-Premise
-- Single-tenant deployment
+### 2. On-Premise (Roadmap)
+- Single-tenant deployment planned
 - Full data control
 - Custom integrations
-- Dedicated support
+- Enterprise tier feature
 
-### 3. Hybrid
+### 3. Hybrid (Roadmap)
 - SaaS for standard workloads
 - On-premise for sensitive data
-- Unified management console
+- Future feature in development
 
 ---
 
@@ -229,21 +233,24 @@ User Query → Embed Query → Vector Search → Retrieve Top-K Chunks
 
 ### Security Features
 - **Encryption in Transit**: TLS 1.3 (all connections)
-- **Encryption at Rest**: AES-256 for documents
+- **Encryption at Rest**: Service-managed encryption for documents
 - **Access Control**: Role-based (RBAC) + Row-level (RLS)
-- **Audit Logging**: All actions logged with timestamps
-- **Compliance**: SOC 2 Type II, HIPAA, GDPR
+- **Audit Logging**: Comprehensive logging with timestamps
+- **Compliance Focus**: Architecture designed with SOC 2, HIPAA, and GDPR principles (certifications in planning, see [SECURITY.md](../SECURITY.md))
 
 ---
 
 ## Diagram References
 
-The following diagrams are referenced in this architecture:
+**Note:** High-resolution diagrams are in development. ASCII diagrams in this document provide conceptual overview.
 
-- `/assets/diagrams/system-architecture.png` – Complete system diagram
-- `/assets/diagrams/data-flow.png` – Document processing flow
-- `/assets/diagrams/rag-pipeline.png` – RAG analysis pipeline
-- `/assets/diagrams/security-architecture.png` – Security layers
+Planned visual assets:
+- System architecture diagram (in development)
+- Document processing flow diagram (in development)
+- RAG analysis pipeline diagram (in development)
+- Security architecture diagram (in development)
+
+See `/assets/diagrams/README.md` for status updates.
 
 ---
 

@@ -1,5 +1,7 @@
 # Frequently Asked Questions
 
+> **Platform Status:** Early-stage MVP. Pricing and features described represent planned capabilities. See [SECURITY.md](../SECURITY.md) for current implementation status.
+
 ## Table of Contents
 
 1. [Business & Licensing](#business--licensing)
@@ -21,23 +23,23 @@ The AI Document Intelligence Platform is an enterprise SaaS solution that automa
 
 ### How is the platform priced?
 
-We offer flexible pricing with multiple tiers:
+**Planned Pricing Tiers** (subject to change during MVP phase):
 
 - **Free Tier**: 5 documents/month (perfect for trials)
 - **Starter Plan**: $299/month (50 documents/month, 2 concurrent)
 - **Professional Plan**: $999/month (200 documents/month, 5 concurrent)
-- **Enterprise Plan**: Custom pricing (unlimited documents, custom SLA)
+- **Enterprise Plan**: Custom pricing (unlimited documents, custom SLA when available)
 
-All tiers include API access, webhooks, and real-time processing updates.
+**Note:** Pricing is indicative and subject to change. Formal subscription tiers will be finalized for Version 1.0 release.
 
 ### Can I purchase credits instead of a subscription?
 
-Yes! We offer pay-as-you-go credits:
-- 10 credits: $5 (Invoice: $0.50/document)
-- 50 credits: $20 ($0.40/document)
-- 500 credits: $150 ($0.30/document)
+**Planned credit system** (pricing indicative):
+- 10 credits: $5 (approx. $0.50/document)
+- 50 credits: $20 (approx. $0.40/document)
+- 500 credits: $150 (approx. $0.30/document)
 
-Credits are valid for 12 months and can be used on any subscription tier.
+Credit system planned for Version 1.0 release. Contact us for early access.
 
 ### What document types do you support?
 
@@ -59,12 +61,14 @@ Yes, for enterprise customers. We provide white-label SaaS options where you can
 
 ### Can I use the platform for internal-only applications?
 
-Absolutely! Many customers run the platform internally:
-- **On-Premise Deployment** – Full data control
-- **Hybrid Deployment** – SaaS for standard workloads, on-premise for sensitive data
-- **Private Cloud** – Deploy to your AWS/Azure account
+**Current:** Cloud-hosted SaaS deployment available
 
-Contact sales for deployment options.
+**Planned (Roadmap):**
+- **On-Premise Deployment** – Full data control (planned for enterprise tier)
+- **Hybrid Deployment** – Mix of SaaS and on-premise (under development)
+- **Private Cloud** – Deploy to your AWS/Azure account (roadmap)
+
+Contact us to discuss future deployment options and early access.
 
 ### What are the licensing terms?
 
@@ -132,7 +136,9 @@ In development (Q2 2025): Spanish, French, German, Mandarin Chinese. Additional 
 
 ### Can I use the platform programmatically (via API)?
 
-Yes! Full REST API with webhooks. See the [API Reference](./api_reference.md) for complete documentation. SDKs available for Python, JavaScript/Node.js, and Go.
+Yes! REST API design with planned webhook support. See the [API Reference](./api_reference.md) for documentation (note: API is in active development).
+
+**SDKs:** Python, JavaScript/Node.js, and Go SDKs are planned (not yet released).
 
 ### What is RAG and why does it matter?
 
@@ -142,17 +148,23 @@ Yes! Full REST API with webhooks. See the [API Reference](./api_reference.md) fo
 3. **LLM context** – Feed relevant sections to language model
 4. **Structured output** – Get analyzed results
 
-This approach is 98%+ accurate and avoids hallucinations compared to pure LLM analysis.
+This approach targets high accuracy and reduces hallucinations compared to pure LLM analysis. Actual performance varies by document type and complexity.
 
 ### How do you ensure document privacy?
 
+**Current Security Measures:**
 - **Encryption in Transit**: TLS 1.3 for all connections
-- **Encryption at Rest**: AES-256 for stored documents
+- **Encryption at Rest**: Service-managed encryption via hosting providers
 - **Access Control**: Row-level security (RLS) prevents cross-user access
-- **Audit Logging**: All access logged with timestamps
-- **Data Residency**: EU data stays in EU, support for other regions
+- **Audit Logging**: Comprehensive logging with timestamps
+- **Data Location**: Currently US-based (additional regions planned)
 
-See [SECURITY.md](../SECURITY.md) for full details.
+**Planned Features:**
+- Multiple data residency options (EU, APAC)
+- Customer-managed encryption keys
+- On-premise deployment options
+
+See [SECURITY.md](../SECURITY.md) for complete security disclosure and honest assessment of current capabilities vs. planned features.
 
 ### Do you train models on my documents?
 
@@ -184,23 +196,36 @@ See our [Developer Guide](./developer_guide.md) for export patterns.
 
 ### What compliance certifications do you have?
 
-- ✅ **SOC 2 Type II** – Audited security, availability, integrity
-- ✅ **HIPAA-Ready** – HIPAA compliance available for healthcare
-- ✅ **GDPR-Compliant** – Full GDPR compliance with data residency
-- ✅ **CCPA-Compliant** – California privacy regulations
-- ✅ **ISO 27001-Ready** – Information security management
+**Current Status (MVP):**
+- ❌ **SOC 2 Type II** – Not yet audited (planned 2025-2026)
+- ❌ **HIPAA** – Not certified (security architecture designed with HIPAA principles)
+- ❌ **GDPR** – Not formally audited (implementing GDPR principles)
+- ❌ **CCPA** – Implementing requirements (not yet certified)
+- ❌ **ISO 27001** – Not certified (planned for future)
 
-Enterprise deployments can achieve additional certifications.
+**What We Do Have:**
+- ✅ Security architecture designed with compliance in mind
+- ✅ Encryption in transit (TLS 1.3) and at rest
+- ✅ Role-based access control (RBAC)
+- ✅ Audit logging capabilities
+- ✅ Row-level security in database
+
+See [SECURITY.md](../SECURITY.md) for complete, honest assessment of our security posture and limitations.
 
 ### How do you handle data breaches?
 
-We maintain:
-- **Incident Response Plan** – Immediate response protocol
-- **Breach Notification** – 72-hour regulatory notification
-- **Cyber Insurance** – Coverage for security incidents
-- **Regular Audits** – Third-party penetration testing
+**Current capability (MVP):**
+- **Incident Response Process** – Documented procedures for security incidents
+- **Best-Effort Response** – Response within 24-48 hours
+- **Notification** – Will comply with applicable breach notification requirements
 
-See [SECURITY.md](../SECURITY.md) for breach notification policy.
+**Planned (Enterprise tier):**
+- 24/7 security monitoring
+- Dedicated incident response team
+- Cyber insurance coverage
+- Formal SLA for response times
+
+See [SECURITY.md](../SECURITY.md) for complete breach notification policy and incident response procedures.
 
 ### Is penetration testing allowed?
 
